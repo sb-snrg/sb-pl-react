@@ -1,6 +1,4 @@
-/**
- * Created by jaures on 26/06/2017.
- */
+
 import React from 'react';
 import {Link} from 'react-router';
 
