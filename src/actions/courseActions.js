@@ -1,10 +1,7 @@
-/**
- * Created by jaures on 26/06/2017.
- */
 
 import * as types from './actionTypes';
 import courseApi from '../api/mockCourseApi';
-import {beginAjaxCall} from './ajaxStatusActions';
+import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
 
 /*export function createCourse(course) {
   return { type : types.CREATE_COURSE, course };
@@ -28,6 +25,7 @@ export function loadCourses() {
     return courseApi.getAllCourses().then(courses => {
       dispatch(loadCoursesSuccess(courses));
     }).catch(error => {
+      dispatch(ajaxCallError());
       throw(error);
     });
   };
@@ -40,6 +38,7 @@ export function saveCourse(course) {
       course.id ? dispatch(updateCourseSuccess(course)) :
         dispatch(createCourseSuccess(course));
     }).catch(error => {
+      dispatch(ajaxCallError());
       throw(error);
     });
   };
